@@ -1,0 +1,19 @@
+version: '3'
+services: 
+    db: 
+        image: mongo:3.4
+    backend:
+        image: node:8.1
+        volumes: 
+# de onde você está, irá entrar e pgar a pasta frontend e jogar no caminho especificado dentro do container
+            - ./backend:/backend
+        ports:
+            - 3000:3000
+        command: bash -c "cd /backend &&  && npm i && node app"
+    frontend:
+        image: nginx:1.13
+        volumes: 
+ # de onde você está, irá entrar e pgar a pasta frontend e jogar no caminho especificado dentro do container
+            - ./frontend:/usr/share/nginx/html/
+        ports:
+            - 80:80
