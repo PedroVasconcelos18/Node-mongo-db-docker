@@ -16,7 +16,6 @@ server.use(cors());
 
 //mapemaneto objeto documento
 //ODM
-
 const Client = mongoose.model('Client', {
     name: { type: String, required: true }
 })
